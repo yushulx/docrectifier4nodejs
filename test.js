@@ -11,7 +11,7 @@ var obj = new DocRectifier();
         console.log(results);
         let result = results[0];
         result = await obj.normalizeFileAsync('./images/document.png', result['x1'], result['y1'], result['x2'], result['y2'], result['x3'], result['y3'], result['x4'], result['y4']);
-        obj.save('xiao.png');
+        obj.save('test.png');
     } catch (error) {
         console.log(error);
     }
