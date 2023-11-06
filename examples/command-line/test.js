@@ -6,12 +6,19 @@ console.log(DocRectifier.getVersionNumber());
 DocRectifier.initLicense('DLS2eyJoYW5kc2hha2VDb2RlIjoiMjAwMDAxLTE2NDk4Mjk3OTI2MzUiLCJvcmdhbml6YXRpb25JRCI6IjIwMDAwMSIsInNlc3Npb25QYXNzd29yZCI6IndTcGR6Vm05WDJrcEQ5YUoifQ==');
 
 var obj = new DocRectifier();
-obj.setParameters(DocRectifier.Template.binary);
+obj.setParameters(DocRectifier.Template.color);
 
 sharp('../../images/document.png')
   .raw() // This ensures the image data is returned as raw pixel data
   .toBuffer((err, data, info) => {
     if (err) throw err;
+
+    for (let i = 0; i < data.length; i += info.channels) {
+      const red = data[i];
+      const blue = data[i + 2];
+      data[i] = blue;      // Set the red channel to the original blue channel's value
+      data[i + 2] = red;   // Set the blue channel to the original red channel's value
+    }
 
     const width = info.width;
     const height = info.height;
