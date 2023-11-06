@@ -1,0 +1,28 @@
+{
+  "name": "docrectifier4nodejs",
+  "version": "1.0.0",
+  "description": "Node.js bindings to Dynamsoft Document Normalizer C/C++ SDK.",
+  "keywords": [
+    "Document rectification",
+    "Edge detection",
+    "Document scanning"
+  ],
+  "author": "yushulx",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yushulx/nodejs-document-rectification"
+  },
+  "homepage": "https://github.com/yushulx/nodejs-document-rectification#readme",
+  "main": "index.js",
+  "typings": "",
+  "scripts": {
+    "configure": "node-gyp configure",
+    "build": "node-gyp configure build --jobs max",
+    "clean": "node-gyp clean"
+  },
+  "gypfile": true,
+  "devDependencies": {
+    "@types/node": "^18.7.14"
+  }
+}
