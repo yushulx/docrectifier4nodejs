@@ -23,7 +23,7 @@
                     ],
 
                     'libraries': [
-                        "-lDynamsoftCorex64", "-lDynamsoftDocumentNormalizerx64", "-L../lib/linux"
+                        "-lDynamsoftCore", "-lDynamsoftDocumentNormalizer", "-L../lib/linux"
                     ],
                     'copies': [
                         {
