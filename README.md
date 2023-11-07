@@ -52,4 +52,9 @@ try {
 
 ## Examples
 - [Command Line](https://github.com/yushulx/nodejs-document-rectification/tree/main/examples/command-line)
+  
+     ![command line document rectification in node.js](https://github.com/yushulx/nodejs-document-rectification/assets/2202306/bd824c6b-6097-4ff3-a28b-9248c71583aa)
+
 - [Web](https://github.com/yushulx/nodejs-document-rectification/tree/main/examples/web)
+
+    ![nodejs-web-document-rectification](https://github.com/yushulx/nodejs-document-rectification/assets/2202306/022ba158-fc66-4053-9429-f331ca9badcc)
