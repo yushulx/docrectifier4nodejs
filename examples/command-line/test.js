@@ -32,7 +32,7 @@ sharp('../../images/document.png')
         let result = results[0];
         result = await obj.normalizeBufferAsync(data, width, height, stride, result['x1'], result['y1'], result['x2'], result['y2'], result['x3'], result['y3'], result['x4'], result['y4']);
         obj.save('test.png');
-
+        console.log('Saved the rectified document to test.png');
         // data = result['data']
         // for (let i = 0; i < data.length; i += info.channels) {
         //   const red = data[i];
