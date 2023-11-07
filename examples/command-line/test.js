@@ -32,6 +32,26 @@ sharp('../../images/document.png')
         let result = results[0];
         result = await obj.normalizeBufferAsync(data, width, height, stride, result['x1'], result['y1'], result['x2'], result['y2'], result['x3'], result['y3'], result['x4'], result['y4']);
         obj.save('test.png');
+
+        // data = result['data']
+        // for (let i = 0; i < data.length; i += info.channels) {
+        //   const red = data[i];
+        //   const blue = data[i + 2];
+        //   data[i] = blue;      
+        //   data[i + 2] = red;   
+        // }
+        // sharp(data, {
+        //   raw: {
+        //     width: result['width'],
+        //     height: result['height'],
+        //     channels: 4
+        //   }
+        // })
+        //   .toFile('output.png', (err, info) => {
+        //     if (err) throw err;
+        //     // 'info' contains details about the output image
+        //     console.log(info);
+        //   });
       } catch (error) {
         console.log(error);
       }
