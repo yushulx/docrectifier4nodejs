@@ -4,7 +4,7 @@ The Node.js Document Rectification SDK is a Node binding to [Dynamsoft Label Rec
 
 
 ## License Key 
-Get a [30-day FREE trial license](https://www.dynamsoft.com/customer/license/trialLicense/?product=ddn) to activate the SDK.
+Get a [30-day FREE trial license](https://www.dynamsoft.com/customer/license/trialLicense/?product=dcv&package=cross-platform) to activate the SDK.
 
 ## Pre-requisites
 - [Node.js](https://nodejs.org/en/download/)
