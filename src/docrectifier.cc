@@ -412,7 +412,7 @@ void InitLicense(const FunctionCallbackInfo<Value> &args)
 	String::Utf8Value license(isolate, args[0]);
 	char *pszLicense = *license;
 	char errorMsgBuffer[512];
-	// Click https://www.dynamsoft.com/customer/license/trialLicense/?product=DocRectifier to get a trial license.
+	// Click https://www.dynamsoft.com/customer/license/trialLicense/?product=dcv&package=cross-platform to get a trial license.
 	int ret = DC_InitLicense(pszLicense, errorMsgBuffer, 512);
 	printf("InitLicense: %s\n", errorMsgBuffer);
 	args.GetReturnValue().Set(Number::New(isolate, ret));
