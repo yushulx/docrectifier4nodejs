@@ -1,28 +1,42 @@
 {
   "name": "docrectifier4nodejs",
-  "version": "1.0.0",
-  "description": "Node.js bindings to Dynamsoft Document Normalizer C/C++ SDK.",
+  "version": "2.0.0",
+  "description": "Node.js document edge detection and rectification built on Dynamsoft Capture Vision - pure JavaScript, no native build step.",
   "keywords": [
     "Document rectification",
     "Edge detection",
-    "Document scanning"
+    "Document scanning",
+    "Deskew",
+    "Node.js",
+    "Dynamsoft"
   ],
   "author": "yushulx",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yushulx/nodejs-document-rectification"
+    "url": "git+https://github.com/yushulx/docrectifier4nodejs.git"
   },
-  "homepage": "https://github.com/yushulx/nodejs-document-rectification#readme",
+  "homepage": "https://github.com/yushulx/docrectifier4nodejs#readme",
   "main": "index.js",
-  "typings": "",
-  "scripts": {
-    "configure": "node-gyp configure",
-    "build": "node-gyp configure build --jobs max",
-    "clean": "node-gyp clean"
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=16"
   },
-  "gypfile": true,
+  "scripts": {
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "dynamsoft-capture-vision-for-node": "3.6.4002",
+    "dynamsoft-capture-vision-for-node-model": "3.6.4000"
+  },
   "devDependencies": {
-    "@types/node": "^18.7.14"
+    "@types/node": "^20.14.2",
+    "pngjs": "^7.0.0"
   }
 }

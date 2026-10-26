@@ -1,9 +1,15 @@
 {
+  "name": "docrectifier-web-example",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Web document rectification sample",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "license": "MIT",
   "dependencies": {
-    "barcode4nodejs": "^9.6.28",
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1",
-    "sharp": "^0.32.6"
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1"
   }
 }

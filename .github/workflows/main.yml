@@ -2,21 +2,49 @@ name: Node.js Package
 on: [push, pull_request]
 
 jobs:
-  build:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    env:
+      DCV_LICENSE: ${{ secrets.dcv_license }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org/
+      - name: install
+        run: npm install
+      - name: test
+        run: npm test
+
+  publish:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: 16
+          node-version: 22
           registry-url: https://registry.npmjs.org/
-      - name: test
-        run: |
-          npm i node-gyp -g
-          node-gyp configure
-          node-gyp build
-          node test.js
-      - run: npm publish
+
+      # Fails fast with a readable message when the token is missing or expired,
+      # instead of the cryptic `E404 Not Found - PUT` npm returns later on.
+      - name: Verify npm credentials
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token || secrets.NPM_TOKEN }}
+        run: |
+          npm whoami
+          npm view "$(node -p "require('./package.json').name")" name
+
+      - name: Publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.npm_token || secrets.NPM_TOKEN }}
+        run: |
+          NAME=$(node -p "require('./package.json').name")
+          VERSION=$(node -p "require('./package.json').version")
+          if npm view "$NAME@$VERSION" version >/dev/null 2>&1; then
+            echo "$NAME@$VERSION is already published, nothing to do."
+            exit 0
+          fi
+          npm publish --access public
