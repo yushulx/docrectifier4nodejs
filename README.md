@@ -138,8 +138,8 @@ const quads = await rectifier.detectBufferAsync(rgb, width, height, width * 3);
 - **Colour mode** follows `NormalizerParameterArray[0].ColourMode`:
   `ICM_COLOUR` keeps the colours, `ICM_GRAYSCALE` converts to gray, `ICM_BINARY` binarises with an
   automatically computed (Otsu) threshold.
-- **`save()` writes PNG.** The SDK's own `ImageIO.saveToFile()` throws on every input in 3.6.4002, so the
-  PNG encoder is built in (Node's `zlib`, no dependency).
+- **`save()` writes PNG.** The SDK's own `ImageIO.saveToFile()` throws on every input (still true in
+  3.6.4003), so the PNG encoder is built in (Node's `zlib`, no dependency).
 
 ## Examples
 
